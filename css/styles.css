@@ -18,6 +18,21 @@ body {
   max-width: 1200px;
 }
 
+.input {
+  font-family: "Quicksand", sans-serif;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #7a85ad;
+  background: #efeff7;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+.input--size-lg {
+  padding: 20px 24px;
+  border-radius: 5px;
+}
+
 .btn {
   font-family: "Quicksand", sans-serif;
   box-sizing: border-box;
@@ -28,10 +43,15 @@ body {
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
   background: none;
   border: 1px solid transparent;
   border-radius: 2px;
   transition: 0.2s;
+}
+.btn--size-lg {
+  padding: 20px 60px;
+  border-radius: 5px;
 }
 .btn--primary {
   background-color: #d2e1ff;
@@ -54,6 +74,13 @@ body {
 .btn--secondary:hover {
   background-color: #b9d0ff;
 }
+.btn--secondary-inverted {
+  color: #565f82;
+  background-color: #fff;
+}
+.btn--secondary-inverted:hover {
+  background-color: #f2f2f2;
+}
 .btn--grayscale {
   color: #7382a3;
   background-color: #e8ecf4;
@@ -68,6 +95,14 @@ body {
 .btn--no-bg:hover {
   color: #8c96c0;
   border: 1px solid #b1b6d1;
+}
+.btn--no-bg-inverted {
+  color: #c7d3ff;
+  border-color: #a0b4ff;
+}
+.btn--no-bg-inverted:hover {
+  color: #fafbff;
+  border-color: #bac8ff;
 }
 
 h1,
@@ -245,7 +280,7 @@ h5 {
   font-weight: 500;
 }
 .slider-hero-image__item-content .text {
-  width: 60%;
+  max-width: 60%;
   margin: 0 auto 20px;
   line-height: 2;
 }
@@ -641,11 +676,74 @@ h5 {
 }
 
 .section-get-started {
-  background-color: #6888ff;
+  position: relative;
+  color: #fff;
+  background: linear-gradient(#6888ff, #5e80ff);
+  text-align: center;
+}
+.section-get-started::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  content: "";
+  background: url("../img/get_started-clouds.svg") no-repeat 50% 50%;
+}
+.section-get-started .section-inner {
+  position: relative;
+  z-index: 10;
+}
+.section-get-started h2,
+.section-get-started h5 {
+  color: #fff;
+}
+.section-get-started h2 {
+  font-weight: 300;
+}
+.section-get-started h2 span {
+  font-weight: 500;
+}
+.section-get-started .text {
+  max-width: 60%;
+  margin: 0 auto 40px;
+  line-height: 2;
 }
 
 .section-newsletter {
   background-color: #fcfdff;
+}
+.section-newsletter .section-inner {
+  display: flex;
+  justify-content: space-between;
+}
+.section-newsletter__left {
+  flex-basis: 35%;
+}
+.section-newsletter__left-title {
+  font-family: "Quicksand", sans-serif;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #3d4f9f;
+}
+.section-newsletter__left-text {
+  font-size: 15px;
+  line-height: 2;
+}
+.section-newsletter__right {
+  flex-basis: 55%;
+}
+
+.form-newsletter {
+  display: flex;
+}
+.form-newsletter .input {
+  flex-grow: 1;
+}
+.form-newsletter .btn {
+  margin-left: 16px;
 }
 
 .section-footer {

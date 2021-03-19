@@ -68,6 +68,23 @@ body {
   }
 }
 
+.input {
+  @include quicksand();
+
+  padding: $base*3 $base*4;
+  font-size: $fs-sm;
+  font-weight: $fw-bold;
+  color: #7a85ad;
+  background: #efeff7;
+  border: 1px solid transparent;
+  border-radius: 2px;
+
+  &--size-lg {
+    padding: $base*5 $base*6;
+    border-radius: 5px;
+  }
+}
+
 .btn {
   @include quicksand();
 
@@ -79,10 +96,16 @@ body {
   font-weight: $fw-bold;
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
   background: none;
   border: 1px solid transparent;
   border-radius: 2px;
   transition: $transition;
+
+  &--size-lg {
+    padding: $base*5 $base*15;
+    border-radius: 5px;
+  }
 
   &--primary {
     background-color: #d2e1ff;
@@ -107,6 +130,15 @@ body {
     &:hover {
       background-color: darken(#d2e1ff, 5%);
     }
+
+    &-inverted {
+      color: #565f82;
+      background-color: #fff;
+
+      &:hover {
+        background-color: darken(#fff, 5%);
+      }
+    }
   }
 
   &--grayscale {
@@ -125,6 +157,16 @@ body {
     &:hover {
       color: darken(#adb4d2, 10%);
       border: 1px solid darken(#d1d4e4, 10%)
+    }
+
+    &-inverted {
+      color: #c7d3ff;
+      border-color: #a0b4ff;
+
+      &:hover {
+        color: lighten(#c7d3ff, 10%);
+        border-color: lighten(#a0b4ff, 5%);
+      }
     }
   }
 }
@@ -337,7 +379,7 @@ h5 {
         }
       }
       .text {
-        width: 60%;
+        max-width: 60%;
         margin: 0 auto $base*5;
         line-height: 2;
       }
@@ -828,16 +870,93 @@ h5 {
 // === GET-STARTED ===
 
 .section-get-started {
-  background-color: #6888ff;
+  position: relative;
+  color: #fff;
+  background: linear-gradient(#6888ff, #5e80ff);
+  text-align: center;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    content: '';
+    background: url("../img/get_started-clouds.svg") no-repeat 50% 50%;
+  }
+  .section-inner {
+    position: relative;
+    z-index: 10;
+  }
+
+  h2,
+  h5 {
+    color: #fff;
+  }
+
+  h2 {
+    font-weight: $fw-light;
+
+    span {
+      font-weight: $fw-medium;
+    }
+  }
+
+  .text {
+    max-width: 60%;
+    margin: 0 auto $base*10;
+    line-height: 2;
+  }
 }
 
 // === GET-STARTED ===
+
 // === NEWSLETTER ===
 .section-newsletter {
   background-color: #fcfdff;
+
+  .section-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left{
+    flex-basis: 35%;
+
+    &-title {
+      @include quicksand();
+
+      margin-bottom: $base * 4;
+      font-size: $fs-lg;
+      font-weight: $fw-bold;
+      color: #3d4f9f;
+    }
+
+    &-text {
+      font-size: $fs-md;
+      line-height: 2;
+    }
+  }
+
+  &__right{
+    flex-basis: 55%;
+  }
 }
 
+.form-newsletter {
+  display: flex;
+
+  .input {
+    flex-grow: 1;
+  }
+
+  .btn {
+    margin-left: $base * 4;
+  }
+}
 // === NEWSLETTER ===
+
 // === FOOTER ===
 .section-footer {
   border-bottom: 0;
